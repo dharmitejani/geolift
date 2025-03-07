@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Gate a geo experiment on pre-period fit and calculate placebo-based incrementality.">
+  <title>GeoLift · Working Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="masthead"><a class="brand" href="https://github.com/dharmitejani/geolift">GeoLift</a><span class="build-state"><i></i> live computation</span></header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">Synthetic-control inference</p>
+      <h1>Run the decision,<br><em>inspect the evidence.</em></h1>
+      <p class="lede">Gate a geo experiment on pre-period fit and calculate placebo-based incrementality.</p>
+    </section>
+    <section class="workspace" aria-label="Interactive project workspace">
+      <form id="workspace-form" class="control-panel">
+        <div class="panel-heading"><span>01</span><div><p>Inputs</p><h2>Configure the run</h2></div></div>
+        <div class="fields"><label class="field" for="preRmse"><span>Pre-period RMSE</span><input id="preRmse" name="preRmse" type="number" value="0.034" min="0" max="1" step="any" data-suggested-step="0.001"></label>
+<label class="field" for="fitGate"><span>Maximum accepted RMSE</span><input id="fitGate" name="fitGate" type="number" value="0.08" min="0" max="1" step="any" data-suggested-step="0.001"></label>
+<label class="field" for="observedSales"><span>Observed post-period sales</span><input id="observedSales" name="observedSales" type="number" value="1045000" min="0" max="1000000000" step="any" data-suggested-step="1000"></label>
+<label class="field" for="syntheticSales"><span>Synthetic-control sales</span><input id="syntheticSales" name="syntheticSales" type="number" value="1000000" min="0" max="1000000000" step="any" data-suggested-step="1000"></label>
+<label class="field" for="placeboGaps"><span>Placebo gaps</span><textarea id="placeboGaps" name="placeboGaps" rows="4">12000, 18000, 25000, 31000, 9000, 15000, 22000, 28000, 11000</textarea><span class="field-help">Comma-separated absolute sales gaps</span></label></div>
+        <div class="actions"><button class="run" type="submit">Run analysis <span>→</span></button><button id="reset-button" class="reset" type="button">Reset</button></div>
+      </form>
+      <section id="results" class="result-panel" aria-live="polite" aria-busy="true">
+        <div class="panel-heading"><span>02</span><div><p>Output</p><h2>Decision trace</h2></div></div>
+        <div id="result-content" class="result-content"><div class="loading">Computing initial scenario…</div></div>
+      </section>
+    </section>
+  </main>
+  <footer><p>Built from the tested logic in <a href="https://github.com/dharmitejani/geolift">dharmitejani/geolift</a>.</p></footer>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
